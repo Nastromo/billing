@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import CptList from './CptList';
+import EditCpt from './EditCpt';
+import CptDesc from './CptDesc';
 
 
 
@@ -7,10 +10,12 @@ import { connect } from 'react-redux';
 export class Main extends Component {
 
 
-
     render() {
         return (
-            <div className="">
+            <div className="fle-cols">
+                <CptList />
+                <EditCpt />
+                <CptDesc />
             </div>
         )
     }

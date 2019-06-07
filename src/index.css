@@ -1947,3 +1947,74 @@ p.logo-text:hover {
 .mar-to {
     margin: 15px 0 0 0;
 }
+
+.fle-cols {
+    display: flex;
+    margin: 15px
+}
+
+.edit-cpt {
+    border: 1px solid #dadada;
+    padding: 15px;
+    width: 600px;
+    background: #fff;
+    margin: 0 17px 0 0;
+}
+
+.status-pa {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.inactive {
+    color: #f75c1f;
+    font-weight: 700;
+    font-size: 0.84rem;
+}
+
+.btn-cpt {
+    outline: none;
+    height: 30px;
+    width: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1dbb9b;
+    color: #fff;
+    font-size: 0.7rem;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.fle-inputs {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.sm-input {
+    height: 30px;
+    width: 250px;
+    border-radius: 4px;
+    border: 1px solid #dadada;
+    padding: 0 15px 0;
+}
+
+.lit-p {
+    color: rgb(71, 71, 71);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.code-des {
+    display: flex;
+    padding: 0;
+    background: #f1f1f1;
+    padding: 2px 15px;
+}
+
+#code-i {
+    width: 150px;
+}
