@@ -2018,3 +2018,94 @@ p.logo-text:hover {
 #code-i {
     width: 150px;
 }
+
+.wide-t {
+    width: 700px;
+}
+
+.create {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 17px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    background: #12a588;
+    color: #fff;
+    width: 120px;
+    border-radius: 3px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.create:active {
+    background: #0d8d73;
+}
+
+.edit-ins {
+    border: 1px solid #dadada;
+    padding: 15px;
+    width: 970px;
+    background: #fff;
+}
+
+.fle-ins{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.audit-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 17px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    background: #12a588;
+    color: #fff;
+    width: 120px;
+    border-radius: 3px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.inactive {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 17px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    background: #ee642e;
+    color: #fff;
+    width: 120px;
+    border-radius: 3px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.fl-in-d {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 20px 0 0 0;
+}
+
+.tit {
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.sm-he {
+    height: 32px;
+    margin: 0 6px 0 0;
+}
+
+.pp200 {
+    width: 200px;
+}
+
+.widd {
+    width: 100%;
+}

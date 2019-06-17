@@ -7,7 +7,7 @@ import CptDesc from './CptDesc';
 
 
 
-export class Main extends Component {
+export class Cpts extends Component {
 
 
     render() {
@@ -29,4 +29,4 @@ const mapDispatchToProps = {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main)
+export default connect(mapStateToProps, mapDispatchToProps)(Cpts)

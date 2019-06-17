@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import LineSpinner from './LineSpinner';
-import Main from './Main';
+import Cpts from './Cpts';
 import Navigation from './Navigation';
+import Insurances from './Insurances';
 
 
 
@@ -18,8 +19,8 @@ export class PrivateRoute extends Component {
             <div>
                 <Navigation />
                 <Switch>
-                    <Route exact path="/account/main" component={Main} />
-                    
+                    <Route exact path="/account/cpts" component={Cpts} />
+                    <Route exact path="/account/insurances" component={Insurances} />
                 </Switch>
             </div>
         )
