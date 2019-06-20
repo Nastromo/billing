@@ -2019,6 +2019,11 @@ p.logo-text:hover {
     width: 150px;
 }
 
+.code-iz {
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
 .wide-t {
     width: 700px;
 }
@@ -2097,6 +2102,7 @@ p.logo-text:hover {
     font-weight: 700;
 }
 
+
 .sm-he {
     height: 32px;
     margin: 0 6px 0 0;
@@ -2108,4 +2114,130 @@ p.logo-text:hover {
 
 .widd {
     width: 100%;
+}
+
+.two-pa-fac {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.fee-de {
+    background: #fff;
+    border: 1px solid #dadada;
+    padding: 15px;
+}
+
+.dio-loi {
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
+}
+
+.wid250x {
+    width: 275px;
+    margin: 0 10px 0 0;
+}
+
+.ww12 {
+    width: 400px;
+}
+
+.mar-t1 {
+    margin: 30px 0 0 0;
+    align-items: center;
+}
+
+.cpt-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.84rem;
+    font-weight: 700;
+    background: #12a588;
+    color: #fff;
+    height: 37px;
+    width: 120px;
+    border-radius: 3px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+#cptCode {
+    width: 100px;
+}
+
+#descr {
+    width: 130px;
+}
+
+#expect {
+    width: 100px;
+}
+
+#feeAm {
+    width: 100px;
+}
+
+#unit {
+    width: 100px;
+}
+
+.mar22-r {
+    margin: 20px 0 0 0;
+}
+
+.worn {
+    margin: 70px 0 0 0;
+}
+
+.audt-u {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 17px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    background: #ffffff;
+    color: #000;
+    width: 120px;
+    border-radius: 3px;
+    border: 1px solid #dadada;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.spe-set {
+    padding: 10px 15px;
+    background: #9af3e1;
+    font-size: 0.84rem;
+    font-weight: 700;
+    width: 100%;
+}
+
+.wid300 {
+    width: 500px;
+}
+
+.bor-15-p {
+    padding: 15px;
+    border: 1px solid #dadada;
+    background: #fff;
+}
+
+.sm-hex {
+    width: 145px;
+}
+
+.centrr {
+    align-items: center;
+}
+
+.redrr {
+    background: #ff8b68;
+    width: 100%;
+}
+
+.mar-15t {
+    margin: 25px 0 0 0;
 }

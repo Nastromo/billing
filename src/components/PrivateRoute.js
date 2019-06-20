@@ -5,6 +5,7 @@ import LineSpinner from './LineSpinner';
 import Cpts from './Cpts';
 import Navigation from './Navigation';
 import Insurances from './Insurances';
+import FeeMaintenance from './FeeMaintenance';
 
 
 
@@ -21,6 +22,7 @@ export class PrivateRoute extends Component {
                 <Switch>
                     <Route exact path="/account/cpts" component={Cpts} />
                     <Route exact path="/account/insurances" component={Insurances} />
+                    <Route exact path="/account/main" component={FeeMaintenance} />
                 </Switch>
             </div>
         )
