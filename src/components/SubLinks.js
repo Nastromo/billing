@@ -8,6 +8,7 @@ import { setActive } from '../store/actions/SetActive';
 
 export class SubLinks extends Component {
     setActive = () => {
+        
         this.props.setActive(!this.props.isActive);
     }
 

@@ -1967,11 +1967,6 @@ p.logo-text:hover {
     align-items: center;
 }
 
-.inactive {
-    color: #f75c1f;
-    font-weight: 700;
-    font-size: 0.84rem;
-}
 
 .btn-cpt {
     outline: none;
@@ -2084,7 +2079,7 @@ p.logo-text:hover {
     font-weight: 700;
     background: #ee642e;
     color: #fff;
-    width: 120px;
+    width: 190px;
     border-radius: 3px;
     margin: 10px 0;
     cursor: pointer;
@@ -2281,5 +2276,11 @@ p.logo-text:hover {
     display: flex;
     margin: 0 auto;
     max-width: 1500px;
+}
+
+.red-p-t {
+    color: #ff672b;
+    font-weight: 700;
+    font-size: 1.3rem;
 }
 

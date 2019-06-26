@@ -7,7 +7,7 @@ import DropDown from './DropDown';
 export class Fee extends Component {
     constructor(props) {
         super(props);
-        this.opt = [`opt1`, `opt2`, `opt3`];
+        this.opt = [`Insurance - Medicare`, `Insurance - Other`, `Patient`, `Client`];
     }
 
     render() {
@@ -62,7 +62,8 @@ export class Fee extends Component {
 }
 
 const mapStateToProps = (state) => ({
-
+    billSchedule: state.dropdownOption.billSchedule,
+    isScheOpen: state.dropdownStatus.billSchedule,
 })
 
 const mapDispatchToProps = {
