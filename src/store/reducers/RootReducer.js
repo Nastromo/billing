@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { notificationCss, notificationText } from './Notification';
 import { loginSpinner } from './Spinner';
+import { active } from './SetActive';
 import { dropdownStatus, dropdownOption } from './DropDown';
 
 
@@ -11,6 +12,7 @@ const RootReducer = combineReducers({
     notificationText,
     dropdownStatus,
     dropdownOption,
+    active
     
 });
 

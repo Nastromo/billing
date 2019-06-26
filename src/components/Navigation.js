@@ -8,13 +8,13 @@ import { Link, withRouter } from 'react-router-dom';
 export class Navigation extends Component {
     setActive = (element) => {
         const activeNavItem = document.getElementsByClassName('menu-active');
-        activeNavItem[0].classList.remove(`menu-active`);
-        element.classList.add(`menu-active`);
+        if (activeNavItem.length > 0) activeNavItem[0].classList.remove(`menu-active`);
+        if (element) element.classList.add(`menu-active`);
     }
 
     componentDidMount() {
         switch (this.props.location.pathname) {
-            case `/account/main`:
+            case `/account/fee`:
                 this.setActive(this.pending);
                 break;
             case `/account/insurances`:
@@ -52,12 +52,12 @@ export class Navigation extends Component {
                 <div className="main-nav">
                     <div className="main-categories">
                         <p className="logo-text">Billing</p>
-                        <Link
+                        {/* <Link
                             id="option1"
                             onClick={this.handleClick}
                             innerRef={el => this.pending = el}
                             className="menu-active"
-                            to="/account/main">Fee Maintenance</Link>
+                            to="/account/fee">Fee Maintenance</Link>
                         <Link
                             id="option2"
                             onClick={this.handleClick}
@@ -67,11 +67,16 @@ export class Navigation extends Component {
                             id="option3"
                             onClick={this.handleClick}
                             innerRef={el => this.cpt = el}
-                            to="/account/cpts">CPTs</Link>
+                            to="/account/cpts">CPTs</Link> */}
                     </div>
 
                     <div className="work-info">
-                        <p className="nav-te" onClick={this.handleExit}>Log out</p>
+                        <Link
+                            id="option1"
+                            onClick={this.handleClick}
+                            innerRef={el => this.pending = el}
+                            to="/account/fee">Settings</Link>
+                        <Link to="/">Log out</Link>
                     </div>
                 </div>
             </div>

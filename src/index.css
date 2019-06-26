@@ -2131,7 +2131,7 @@ p.logo-text:hover {
 .dio-loi {
     display: flex;
     justify-content: space-between;
-    width: 700px;
+    width: 755px;
 }
 
 .wid250x {
@@ -2241,3 +2241,45 @@ p.logo-text:hover {
 .mar-15t {
     margin: 25px 0 0 0;
 }
+
+.work-info a {
+    margin: 0 15px 0 0;
+    font-weight: 700;
+    font-size: 0.84rem;
+    outline: none;
+    text-decoration: none;
+    color: #000;
+}
+
+.fle-yt {
+    display: flex;
+    justify-content: space-between;
+}
+
+.box-li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 20px;
+    font-weight: 700;
+    font-size: 0.84rem;
+    color: #000;
+    border: 1px solid #dadada;
+    background: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    margin: 10px 15px 10px 0;
+}
+
+.box-li-active {
+    background: #1ab394;
+    color: #fff;
+    border: none;
+}
+
+.fle-ma-io {
+    display: flex;
+    margin: 0 auto;
+    max-width: 1500px;
+}
+
