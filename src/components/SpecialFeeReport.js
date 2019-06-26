@@ -23,7 +23,7 @@ export class SpecialFeeReport extends Component {
                                 option={this.props.billSchedule}
                                 status={this.props.isScheOpen}
                                 menu={this.opt}
-                                id="billSchedule" />
+                                id="reportFee" />
                         </div>
                         <div className="cpt-btn">Submit</div>
                     </div>

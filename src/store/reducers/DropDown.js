@@ -6,7 +6,10 @@ export const dropdownStatus = (state = {}, action) => {
                 newState = JSON.parse(JSON.stringify(state));
                 newState.billSchedule = action.obj.status;
                 return newState;
-
+            case `feeSchedule`:
+                newState = JSON.parse(JSON.stringify(state));
+                newState.feeSchedule = action.obj.status;
+                return newState;
             default: return state;
         }
     } else {
@@ -22,7 +25,11 @@ export const dropdownOption = (state = {}, action) => {
                 newState = JSON.parse(JSON.stringify(state));
                 newState.billSchedule = action.obj.option;
                 return newState;
-            
+            case `feeSchedule`:
+                newState = JSON.parse(JSON.stringify(state));
+                newState.feeSchedule = action.obj.option;
+                return newState;
+
             default: return newState;
         }
     } else {

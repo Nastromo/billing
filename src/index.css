@@ -2130,12 +2130,12 @@ p.logo-text:hover {
 }
 
 .wid250x {
-    width: 275px;
+    width: 220px;
     margin: 0 10px 0 0;
 }
 
 .ww12 {
-    width: 400px;
+    width: 230px;
 }
 
 .mar-t1 {
@@ -2282,5 +2282,14 @@ p.logo-text:hover {
     color: #ff672b;
     font-weight: 700;
     font-size: 1.3rem;
+}
+
+.fle-ggf {
+    display: flex;
+    align-items: center;
+}
+
+.wi-ggd {
+    margin: 0 10px 0 0;
 }
 

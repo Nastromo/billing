@@ -31,7 +31,7 @@ export class DeleteFee extends Component {
                                     option={this.props.billSchedule}
                                     status={this.props.isScheOpen}
                                     menu={this.opt}
-                                    id="billSchedule" />
+                                    id="delFee" />
                             </div>
                         </div>
 
