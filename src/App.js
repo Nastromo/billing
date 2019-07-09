@@ -5,7 +5,6 @@ import PrivateRoute from './components/PrivateRoute';
 import Notification from './components/Notification';
 
 
-
 export class App extends Component {
 
     render() {

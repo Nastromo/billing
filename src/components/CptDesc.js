@@ -13,9 +13,6 @@ export class CptDesc extends Component {
             {
                 Header: 'Code',
                 accessor: 'code',
-                style: {
-                    textAlign: 'left',
-                }
             },
             {
                 Header: 'Description',
@@ -63,7 +60,7 @@ export class CptDesc extends Component {
     render() {
         if (this.props.isLoading) return this.renderList([], `Loading list...`);
         if (this.props.isErrored) return this.renderList([], `Error occurred...`);
-        return this.renderList(this.props.list, `No any codes...`);
+        return this.renderList(this.props.list, `No any diagnosis...`);
     }
 }
 

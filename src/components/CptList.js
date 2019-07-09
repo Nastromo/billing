@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactTable from "react-table";
 import '../table.css';
-import { showCode } from '../store/actions/Cpt';
+import { setCpt } from '../store/actions/Cpt';
+import { setCreateMode } from '../store/actions/Create';
 
 
 
@@ -34,7 +35,7 @@ export class CptList extends Component {
     handleRowClick = (state, rowInfo, column, instance) => {
         if (rowInfo) {
             return {
-                onClick: (e, handleOriginal) => this.props.showCode(rowInfo.index),
+                onClick: (e, handleOriginal) => this.props.setCpt(rowInfo.index),
                 style: {
                     fontWeight: rowInfo.index === this.props.selected ? '700' : '600',
                     color: rowInfo.index === this.props.selected ? '#1ab394' : '#4e4e4e',
@@ -46,10 +47,15 @@ export class CptList extends Component {
         }
     }
 
+    setCreateMode = () => {
+        this.props.setCreateMode(true);
+    }
+
     renderList = (list, text) => {
         list.forEach(row => row.fullName = `${row.name} ${row.lastName}`);
         return (
             <div className="content-table">
+                <button onClick={this.setCreateMode} className="btn-cpt-cre">Create</button>
                 <ReactTable
                     data={list}
                     getTdProps={this.handleRowClick}
@@ -71,14 +77,15 @@ export class CptList extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    selected: state.specimenSelected,
-    isLoading: state.pendingLoading,
-    isErrored: state.pendingErrored,
-    list: [],
+    selected: state.selectedCpt,
+    isLoading: state.cptLoading,
+    isErrored: state.cptErrored,
+    list: state.cpt,
 })
 
 const mapDispatchToProps = dispatch => ({
-    showCode: (index) => dispatch(showCode(index)),
+    setCpt: (index) => dispatch(setCpt(index)),
+    setCreateMode: (bool) => dispatch(setCreateMode(bool)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CptList)
