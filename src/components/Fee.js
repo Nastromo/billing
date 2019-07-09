@@ -95,13 +95,13 @@ export class Fee extends Component {
                     </div>
                     {this.props.cptsList.map((item, i) => {
                         return (
-                            <div key={i} className="code-des mar22-r">
+                            <div key={i} className="code-des mar22-r back-y">
                                 <p id="cptCode" className="code-iz">{item.cpt}</p>
-                                <input className="simple-input" value={item.desc} type="text" placeholder="Description" />
+                                <input className="simple-input shrink" value={item.desc} type="text" placeholder="Description" />
                                 <p id="expect" className="code-iz">{item.expect}</p>
                                 <p id="feeAm" className="code-iz">{item.fee}</p>
-                                <input className="simple-input" value={item.fee} type="text" placeholder="Fee amount" />
-                                <input className="simple-input" value={item.mod} type="text" placeholder="Modifier" />
+                                <input className="simple-input shrink" value={item.fee} type="text" placeholder="Fee amount" />
+                                <input className="simple-input shrink" value={item.mod} type="text" placeholder="Modifier" />
                             </div>
                         )
                     })}
@@ -112,10 +112,7 @@ export class Fee extends Component {
                 <div className="code-des mar22-r">
                     <p id="cptCode" className="code-iz">CPT Code</p>
                     <p id="descr" className="code-iz">Description</p>
-                    <p id="expect" className="code-iz">Expected</p>
                     <p id="feeAm" className="code-iz">Fee Amount</p>
-                    <p id="unit" className="code-iz">Units</p>
-                    <p id="modife" className="code-iz">Modifier</p>
                 </div>
             )
         }

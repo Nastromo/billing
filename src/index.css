@@ -2005,9 +2005,10 @@ p.logo-text:hover {
 
 .code-des {
     display: flex;
+    align-items: center;
     padding: 0;
     background: #f1f1f1;
-    padding: 2px 15px;
+    padding: 2px 0 2px 15px;
 }
 
 #code-i {
@@ -2121,6 +2122,7 @@ p.logo-text:hover {
     background: #fff;
     border: 1px solid #dadada;
     padding: 15px;
+    margin: 0 10px 0 0;
 }
 
 .dio-loi {
@@ -2163,7 +2165,7 @@ p.logo-text:hover {
 }
 
 #descr {
-    width: 130px;
+    width: 150px;
 }
 
 #expect {
@@ -2175,11 +2177,15 @@ p.logo-text:hover {
 }
 
 #unit {
-    width: 100px;
+    width: 150px;
 }
 
 .mar22-r {
-    margin: 20px 0 0 0;
+    margin: 5px 0 5px 0;
+}
+
+.back-y {
+    background: #fff6da;
 }
 
 .worn {
@@ -2293,3 +2299,7 @@ p.logo-text:hover {
     margin: 0 10px 0 0;
 }
 
+.shrink {
+    width: 140px;
+    margin: 0 10px 0 0;
+}
