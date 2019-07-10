@@ -2059,6 +2059,24 @@ p.logo-text:hover {
     margin: 5px 0;
 }
 
+.fle-ge-b {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: #15ac8e;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.84rem;
+    padding: 3px 5px;
+    border-radius: 3px;
+    width: 45px;
+}
+
+.added-b {
+    background: #ebae53;
+}
+
 .column-di {
     display: flex;
     flex-direction: column;

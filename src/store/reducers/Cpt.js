@@ -36,6 +36,7 @@ export const selectedCpt = (state = 0, action) => {
 
 export const chosenCpt = (state = {}, action) => {
     let newState;
+    let diagList;
     switch (action.type) {
         case `SET_CHOSEN_CPT`:
             return action.obj
@@ -57,9 +58,18 @@ export const chosenCpt = (state = {}, action) => {
             return newState;
         case `DEL_DIAG`:
             newState = JSON.parse(JSON.stringify(state));
-            const diagList = JSON.parse(newState.diagnosis);
-            console.log(action.index)
+            diagList = JSON.parse(newState.diagnosis);
             diagList.splice(action.index, 1);
+            newState.diagnosis = JSON.stringify(diagList);
+            return newState;
+        case `ADD_DIAG`:
+            newState = JSON.parse(JSON.stringify(state));
+            diagList = JSON.parse(newState.diagnosis);
+            console.log(action.obj)
+            diagList.push({
+                code: action.obj.code,
+                desc: action.obj.description,
+            });
             newState.diagnosis = JSON.stringify(diagList);
             return newState;
         default: return state;

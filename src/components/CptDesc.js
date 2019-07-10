@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactTable from "react-table";
 import '../table.css';
-import { showCode } from '../store/actions/Cpt';
+import { addDiag } from '../store/actions/Diagnosis';
+import AddBtn from './AddBtn';
 
 
 
@@ -21,14 +22,16 @@ export class CptDesc extends Component {
             {
                 Header: 'Status',
                 accessor: 'status',
+                Cell: raw => <AddBtn raw={raw} />
             },
         ];
     }
 
     handleRowClick = (state, rowInfo, column, instance) => {
         if (rowInfo) {
+            console.log(rowInfo)
             return {
-                onClick: (e, handleOriginal) => this.props.showCode(rowInfo.index),
+                onClick: (e, handleOriginal) => this.props.addDiag(rowInfo.original),
                 style: {
                     fontWeight: rowInfo.index === this.props.selected ? '700' : '600',
                     color: rowInfo.index === this.props.selected ? '#1ab394' : '#4e4e4e',
@@ -41,7 +44,6 @@ export class CptDesc extends Component {
     }
 
     renderList = (list, text) => {
-        list.forEach(row => row.fullName = `${row.name} ${row.lastName}`);
         return (
             <div className="content-table">
                 <ReactTable
@@ -65,14 +67,14 @@ export class CptDesc extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    selected: state.specimenSelected,
-    isLoading: state.pendingLoading,
-    isErrored: state.pendingErrored,
-    list: [],
+    selected: state.diagSelected,
+    isLoading: state.diagLoading,
+    isErrored: state.diagErrored,
+    list: state.diags,
 })
 
 const mapDispatchToProps = dispatch => ({
-    showCode: (index) => dispatch(showCode(index)),
+    addDiag: (obj) => dispatch(addDiag(obj)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CptDesc)
