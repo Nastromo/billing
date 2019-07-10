@@ -64,8 +64,7 @@ export const chosenCpt = (state = {}, action) => {
             return newState;
         case `ADD_DIAG`:
             newState = JSON.parse(JSON.stringify(state));
-            diagList = JSON.parse(newState.diagnosis);
-            console.log(action.obj)
+            diagList = JSON.parse(newState.diagnosis ? newState.diagnosis : "[]");
             diagList.push({
                 code: action.obj.code,
                 desc: action.obj.description,

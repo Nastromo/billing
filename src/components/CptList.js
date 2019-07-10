@@ -52,7 +52,6 @@ export class CptList extends Component {
     }
 
     renderList = (list, text) => {
-        list.forEach(row => row.fullName = `${row.name} ${row.lastName}`);
         return (
             <div className="content-table">
                 <button onClick={this.setCreateMode} className="btn-cpt-cre">Create</button>

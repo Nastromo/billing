@@ -29,7 +29,6 @@ export class CptDesc extends Component {
 
     handleRowClick = (state, rowInfo, column, instance) => {
         if (rowInfo) {
-            console.log(rowInfo)
             return {
                 onClick: (e, handleOriginal) => this.props.addDiag(rowInfo.original),
                 style: {

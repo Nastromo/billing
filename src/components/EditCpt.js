@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setCptCode, setCptDesc, setCptMod, setCptFee, delDiag } from '../store/actions/Cpt';
+import { setCptCode, setCptDesc, setCptMod, setCptFee, delDiag, createCpt, updateCpt } from '../store/actions/Cpt';
 
 
 
@@ -43,6 +43,14 @@ export class EditCpt extends Component {
         });
     }
 
+    handleCreate = () => {
+        this.props.createCpt(this.props.cpt);
+    }
+
+    handleUpdate = () => {
+        this.props.updateCpt(this.props.cpt);
+    }
+
     render() {
         return (
             <div className="column-di edit-cpt">
@@ -79,8 +87,8 @@ export class EditCpt extends Component {
                     </dir>
                     {this.showDiagnosis(this.props.cpt.diagnosis ? this.props.cpt.diagnosis : "[]")}
                 </div>
-                {this.props.create ? <button className="btn-cpt-cret">CREATE</button> :
-                    <button className="btn-cpt-up">UPDATE</button>}
+                {this.props.create ? <button onClick={this.handleCreate} className="btn-cpt-cret">CREATE</button> :
+                    <button onClick={this.handleUpdate} className="btn-cpt-up">UPDATE</button>}
 
             </div>
 
@@ -99,6 +107,8 @@ const mapDispatchToProps = dispatch => ({
     setCptMod: (text) => dispatch(setCptMod(text)),
     setCptFee: (text) => dispatch(setCptFee(text)),
     delDiag: (index) => dispatch(delDiag(index)),
+    createCpt: (obj) => dispatch(createCpt(obj)),
+    updateCpt: (obj) => dispatch(updateCpt(obj)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditCpt)
