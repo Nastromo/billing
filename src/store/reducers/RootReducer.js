@@ -4,8 +4,9 @@ import { loginSpinner } from './Spinner';
 import { active } from './SetActive';
 import { dropdownStatus, dropdownOption } from './DropDown';
 import { cpt, cptLoading, cptErrored, selectedCpt, chosenCpt } from './Cpt';
-import { createMode } from '../reducers/Create';
+import { createMode, insCreateMode } from '../reducers/Create';
 import { diagLoading, diagErrored, diags } from '../reducers/Diagnosis';
+import { insLoading, insErrored, insurances, chosenIns, insSelected } from '../reducers/Ins';
 
 
 
@@ -27,7 +28,15 @@ const RootReducer = combineReducers({
     createMode,
     diagLoading,
     diagErrored,
-    diags
+    diags,
+
+    insLoading,
+    insErrored,
+    insurances,
+    chosenIns,
+    insSelected,
+
+    insCreateMode
     
 });
 

@@ -2131,7 +2131,7 @@ p.logo-text:hover {
     padding: 6px 17px;
     font-size: 0.84rem;
     font-weight: 700;
-    background: #12a588;
+    background: #ebae53;
     color: #fff;
     width: 120px;
     border-radius: 3px;
@@ -2140,7 +2140,7 @@ p.logo-text:hover {
 }
 
 .create:active {
-    background: #0d8d73;
+    background: #e4a74c;
 }
 
 .edit-ins {
@@ -2402,4 +2402,16 @@ p.logo-text:hover {
 .shrink {
     width: 140px;
     margin: 0 10px 0 0;
+}
+
+.starre {
+    justify-content: flex-start;
+}
+
+.mar-rigew {
+    margin: 0 40px 0 0;
+}
+
+.orangee {
+    background: #e4a74c;
 }

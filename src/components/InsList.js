@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactTable from "react-table";
 import '../table.css';
-import { showIns } from '../store/actions/Ins';
+import { showIns, setCreateMode } from '../store/actions/Ins';
 
 
 
@@ -15,7 +15,7 @@ export class InsList extends Component {
             },
             {
                 Header: 'Name',
-                accessor: 'name',
+                accessor: 'companyName',
             },
             {
                 Header: 'Neic',
@@ -26,8 +26,8 @@ export class InsList extends Component {
                 accessor: 'provider',
             },
             {
-                Header: 'Free Schedule',
-                accessor: 'freeSchedule',
+                Header: 'Fee Schedule',
+                accessor: 'feeSchedule',
             },
             {
                 Header: 'Test Category',
@@ -51,11 +51,14 @@ export class InsList extends Component {
         }
     }
 
+    handleCreate = () => {
+        this.props.setCreateMode();
+    }
+
     renderList = (list, text) => {
-        list.forEach(row => row.fullName = `${row.name} ${row.lastName}`);
         return (
             <div className="content-table wide-t">
-                <div className="create">Create</div>
+                <div onClick={this.handleCreate} className="create">Create</div>
                 <ReactTable
                     data={list}
                     getTdProps={this.handleRowClick}
@@ -72,19 +75,20 @@ export class InsList extends Component {
     render() {
         if (this.props.isLoading) return this.renderList([], `Loading list...`);
         if (this.props.isErrored) return this.renderList([], `Error occurred...`);
-        return this.renderList(this.props.list, `No any codes...`);
+        return this.renderList(this.props.list, `No any insurances...`);
     }
 }
 
 const mapStateToProps = (state) => ({
     selected: state.insSelected,
-    isLoading: state.pendingLoading,
-    isErrored: state.pendingErrored,
-    list: [],
+    isLoading: state.insLoading,
+    isErrored: state.insErrored,
+    list: state.insurances,
 })
 
 const mapDispatchToProps = dispatch => ({
     showIns: (index) => dispatch(showIns(index)),
+    setCreateMode: () => dispatch(setCreateMode())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(InsList)
