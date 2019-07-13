@@ -7,10 +7,21 @@ import { cpt, cptLoading, cptErrored, selectedCpt, chosenCpt } from './Cpt';
 import { createMode, insCreateMode } from '../reducers/Create';
 import { diagLoading, diagErrored, diags } from '../reducers/Diagnosis';
 import { insLoading, insErrored, insurances, chosenIns, insSelected } from '../reducers/Ins';
+import { isTestLoading, testInput, testList, test, isCptLoading, cptCode, cptList, chosenCptFee, imfeesList } from '../reducers/Fee';
 
 
 
 const RootReducer = combineReducers({
+    imfeesList,
+    chosenCptFee,
+    isCptLoading,
+    cptCode,
+    cptList,
+    test,
+    isTestLoading,
+    testInput,
+    testList,
+
     loginSpinner,
     notificationCss,
     notificationText,

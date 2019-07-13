@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import DropDown from './DropDown';
+import { getTests, setTest, getCpts, setCpt, changeDesc, changeUnit, changeModif, delCpt, saveCpts } from '../store/actions/Fee';
 
 
 
@@ -11,8 +12,6 @@ export class Fee extends Component {
         this.opt = [`Insurance - Medicare`, `Insurance - Other`, `Patient`, `Client`];
         this.fee = [`1`, `2`, `3`, `4`, `5`, `6`];
     }
-
-
 
     setDrop = (option) => {
         switch (option) {
@@ -49,12 +48,26 @@ export class Fee extends Component {
         }
     }
 
+    returnTests = () => {
+        const list = this.props.testList;
+        return list.map((item, i) => {
+            return (
+                <p key={i} id={i} onClick={this.props.setTest} className="test-row-r">{`${item.code} ${item.description}`}</p>
+            )
+        })
+    }
+
     setTest = (option) => {
         if (option !== `Client`) {
             return (
-                <div>
+                <div className="relative">
                     <p className="tit">Test</p>
-                    <input className="simple-input ww12" type="text" />
+                    <input className="simple-input ww12" value={this.props.testInput} onChange={this.props.getTests} />
+                    {this.props.isTestLoading ? <div className="loading-drop">Loading...</div> : null}
+                    {this.props.testList.length > 0 ?
+                        <div className="height-ert4">
+                            {this.returnTests()}
+                        </div> : null}
                 </div>
             )
         } else {
@@ -67,21 +80,40 @@ export class Fee extends Component {
         }
     }
 
+    returnCpts = () => {
+        const list = this.props.cptList;
+        return list.map((item, i) => {
+            return (
+                <p key={i} id={i} onClick={this.props.setCpt} className="test-row-r">{`${item.code} ${item.description}`}</p>
+            )
+        })
+    }
+
     showCpt = (option) => {
         if (option === `Insurance - Medicare` || option === `Insurance - Other`) {
             return (
-                <div className="dio-loi mar-t1">
-                    <div className="fle-ggf">
-                        <input className="simple-input wi-ggd" type="text" placeholder="cpt search" />
-                        <div className="cpt-btn">Add CPT</div>
+                <div>
+                    <div className="dio-loi mar-t1 relative">
+                        <div className="fle-ggf">
+                            <input className="simple-input wi-ggd"
+                                placeholder="cpt search"
+                                value={this.props.cptCode}
+                                onChange={this.props.getCpts} />
+                            {this.props.isCptLoading ? <div className="loading-drop sshrn">Loading...</div> : null}
+                            <div className="cpt-btn">Add CPT</div>
+                        </div>
+                        <input className="simple-input" type="text" placeholder="Quest nj fee" />
                     </div>
-                    <input className="simple-input" type="text" placeholder="Quest nj fee" />
+                    <div className="abs-cpt-l">
+                        {this.props.cptList.length > 0 ? this.returnCpts() : null}
+                    </div>
                 </div>
             )
         }
     }
 
     showTable = (option) => {
+
         if (option === `Insurance - Medicare` || option === `Insurance - Other`) {
             return (
                 <div>
@@ -93,18 +125,21 @@ export class Fee extends Component {
                         <p id="unit" className="code-iz">Units</p>
                         <p id="modife" className="code-iz">Modifier</p>
                     </div>
-                    {this.props.cptsList.map((item, i) => {
-                        return (
-                            <div key={i} className="code-des mar22-r back-y">
-                                <p id="cptCode" className="code-iz">{item.cpt}</p>
-                                <input className="simple-input shrink" value={item.desc} type="text" placeholder="Description" />
-                                <p id="expect" className="code-iz">{item.expect}</p>
-                                <p id="feeAm" className="code-iz">{item.fee}</p>
-                                <input className="simple-input shrink" value={item.fee} type="text" placeholder="Fee amount" />
-                                <input className="simple-input shrink" value={item.mod} type="text" placeholder="Modifier" />
-                            </div>
-                        )
-                    })}
+                    <div className="hee150">
+                        {this.props.imfeesList.map((item, i) => {
+                            return (
+                                <div key={i} className="code-des mar22-r back-y">
+                                    <p id="cptCode" className="code-iz">{item.cptCode}</p>
+                                    <input className="simple-input shrink" id={i} value={item.testDescription ? item.testDescription : ""} onChange={this.props.changeDesc} />
+                                    <p id="expect" className="code-iz">{item.expected}</p>
+                                    <p id="feeAm" className="code-iz">{item.feeAmount}</p>
+                                    <input className="simple-input shrink" id={i} value={item.units ? item.units : ""} placeholder="Units" onChange={this.props.changeUnit} />
+                                    <input className="simple-input shrink" id={i} value={item.modifier ? item.modifier : ""} placeholder="Modifier" onChange={this.props.changeModif} />
+                                    <div onClick={this.props.delCpt} id={i} className="delete-sml"></div>
+                                </div>
+                            )
+                        })}
+                    </div>
                 </div>
             )
         } else {
@@ -151,11 +186,17 @@ export class Fee extends Component {
                 </div>
 
                 <div className="fle-ins">
-                    <div className="audit-btn">Save</div>
+                    <div onClick={this.save} className="audit-btn">Save</div>
                     <div className="audt-u">View Audit</div>
                 </div>
             </div>
         )
+    }
+
+    save = () => {
+        if (this.props.chosenTest.description && this.props.imfeesList.length > 0) {
+            this.props.saveCpts();
+        }
     }
 }
 
@@ -165,17 +206,26 @@ const mapStateToProps = (state) => ({
     feeSchedule: state.dropdownOption.feeSchedule,
     isFeeOpen: state.dropdownStatus.feeSchedule,
     chosenClient: state.chosenClient,
-    cptsList: [{
-        cpt: `cpt`,
-        desc: `desc desc desc`,
-        expect: `expect`,
-        fee: 23,
-        mod: `modifier`
-    }],
+    chosenTest: state.test,
+    imfeesList: state.imfeesList,
+    isTestLoading: state.isTestLoading,
+    testInput: state.testInput,
+    testList: state.testList,
+    cptCode: state.cptCode,
+    cptList: state.cptList,
+    isCptLoading: state.isCptLoading,
 })
 
 const mapDispatchToProps = dispatch => ({
-
+    getTests: (text) => dispatch(getTests(text)),
+    setTest: (e) => dispatch(setTest(e)),
+    getCpts: (e) => dispatch(getCpts(e)),
+    setCpt: (e) => dispatch(setCpt(e)),
+    changeDesc: (e) => dispatch(changeDesc(e)),
+    changeUnit: (e) => dispatch(changeUnit(e)),
+    changeModif: (e) => dispatch(changeModif(e)),
+    delCpt: (e) => dispatch(delCpt(e)),
+    saveCpts: () => dispatch(saveCpts()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Fee)
