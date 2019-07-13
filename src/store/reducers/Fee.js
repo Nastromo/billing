@@ -96,12 +96,43 @@ export const imfeesList = (state = [], action) => {
             newState[action.index].modifier = action.text;
             return newState;
 
-            case `DEL_CPT_FEE`:
+        case `DEL_CPT_FEE`:
             newState = JSON.parse(JSON.stringify(state));
             newState.splice(action.index, 1);
             return newState;
 
-            
+        case `UPDATE_IO_FEES`:
+            newState = JSON.parse(JSON.stringify(state));
+            for (let i = 0; i < newState.length; i++) {
+                let mult = 0;
+                switch (Number(action.obj.option)) {
+                    case 1:
+                        mult = 15;
+                        break;
+                    case 2:
+                        mult = 3;
+                        break;
+                    case 3:
+                        mult = 5;
+                        break;
+                    case 4:
+                        mult = 10;
+                        break;
+                    case 5:
+                        mult = 12;
+                        break;
+                    case 6:
+                        mult = 2;
+                        break;
+                    default: break;
+                }
+                newState[i].feeAmount = newState[i].expected * mult;
+            }
+            return newState;
+
+
+
+
 
         default: return state;
     }

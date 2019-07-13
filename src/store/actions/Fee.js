@@ -47,11 +47,25 @@ export const setTest = (event) => {
     const index = Number(event.target.id);
     return async (dispatch, getState) => {
         const list = getState().testList;
+        const billOpt = getState().dropdownOption.billSchedule;
         dispatch(setChosenTest(list[index]));
         dispatch(setTestInput(list[index].code));
         dispatch(setTestsList([]));
-        const res = await API.get(`/v1/get-imfees?code=${list[index].code}`);
-        dispatch(setImfeesList(res.data));
+        let res;
+        switch (billOpt) {
+            case `Insurance - Medicare`:
+                res = await API.get(`/v1/get-imfees?code=${list[index].code}`);
+                dispatch(setImfeesList(res.data));
+                break;
+            case `Insurance - Other`:
+                res = await API.get(`/v1/get-iofees?code=${list[index].code}`);
+                dispatch(setImfeesList(res.data));
+                break;
+            case `Patient`:
+                res = await API.get(`/v1/get-patient?code=${list[index].code}`);
+                break;
+            default: break;
+        }
     }
 }
 
@@ -122,22 +136,63 @@ export const delCpt = (e) => ({
 export const setCpt = (event) => {
     const index = Number(event.target.id);
     return async (dispatch, getState) => {
-        try {
-            const list = getState().cptList;
-            const chosenTest = getState().test;
-            dispatch(setCptsInput(""));
-            dispatch(setChosenCpt(list[index]));
-            dispatch(setCptsList([]));
-            dispatch(addCptToList({
-                testCode: chosenTest.code, 
-                cptCode: list[index].code,
-                testDescription: chosenTest.description,
-                expected: list[index].fee,
-                feeAmount: list[index].fee * 3,
-            }));
-        } catch (err) {
-            dispatch(setCptsLoading(false));
-            console.log(err);
+        const list = getState().cptList;
+        const chosenTest = getState().test;
+        const billOpt = getState().dropdownOption.billSchedule;
+        const feeSchedOpt = Number(getState().dropdownOption.feeSchedule);
+        let mult = 0;
+        switch (feeSchedOpt) {
+            case 1:
+                mult = 15;
+                break;
+            case 2:
+                mult = 3;
+                break;
+            case 3:
+                mult = 5;
+                break;
+            case 4:
+                mult = 10;
+                break;
+            case 5:
+                mult = 12;
+                break;
+            case 6:
+                mult = 2;
+                break;
+            default: break;
+        }
+
+        dispatch(setCptsInput(""));
+        dispatch(setChosenCpt(list[index]));
+        dispatch(setCptsList([]));
+
+        switch (billOpt) {
+            case `Insurance - Medicare`:
+                console.log(list[index].fee)
+                dispatch(addCptToList({
+                    testCode: chosenTest.code,
+                    cptCode: list[index].code,
+                    testDescription: chosenTest.description,
+                    expected: list[index].fee,
+                    feeAmount: list[index].fee * 3,
+                }));
+                break;
+            case `Insurance - Other`:
+                console.log(list[index].fee)
+                dispatch(addCptToList({
+                    testCode: chosenTest.code,
+                    cptCode: list[index].code,
+                    testDescription: chosenTest.description,
+                    expected: list[index].fee,
+                    feeAmount: list[index].fee * mult,
+                }));
+                break;
+            case `Patient`:
+
+                break;
+
+            default: break;
         }
     }
 }
@@ -152,8 +207,24 @@ export const saveCpts = () => {
                     return;
                 }
             }
-            await API.post(`/v1/save-cpts`, imfeesList);
-            dispatch(showNotification(`Saved...`, `notification-show notification-green`));
+            switch (getState().dropdownOption.billSchedule) {
+                case `Insurance - Medicare`:
+                    await API.post(`/v1/save-cpts`, {
+                        code: getState().test.code,
+                        list: imfeesList
+                    });
+                    dispatch(showNotification(`Saved...`, `notification-show notification-green`));
+                    break;
+                case `Insurance - Other`:
+                    await API.post(`/v1/save-cpts-io`, {
+                        code: getState().test.code,
+                        list: imfeesList
+                    });
+                    dispatch(showNotification(`Saved...`, `notification-show notification-green`));
+                    break;
+                default: break;
+            }
+
         } catch (err) {
             dispatch(showNotification(`Error...`, `notification-show`));
             dispatch(setCptsLoading(false));
