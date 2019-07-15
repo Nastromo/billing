@@ -36,13 +36,20 @@ export class Fee extends Component {
                         <input
                             className="simple-input ww12"
                             type="text"
-                            placeholder="enter client id or client name" />
+                            placeholder="enter client name" />
                         <p className="red-p-t">{this.props.chosenClient ? this.props.client : `Global`}</p>
                     </div>
                 )
             case `Client`:
                 return (
-                    <div></div>
+                    <div className="wid250x">
+                        <p className="tit">Client</p>
+                        <input
+                            className="simple-input ww12"
+                            type="text"
+                            placeholder="enter client name" />
+                        <p className="red-p-t">{this.props.chosenClient ? this.props.client : `Global`}</p>
+                    </div>
                 )
             default: break;
         }
@@ -142,10 +149,18 @@ export class Fee extends Component {
                     </div>
                 </div>
             )
+        } else if (option === `Patient`) {
+            return (
+                <div className="code-des mar22-r">
+                    <p id="cptCode" className="code-iz">Test Code</p>
+                    <p id="descr" className="code-iz">Description</p>
+                    <p id="feeAm" className="code-iz">Fee Amount</p>
+                </div>
+            )
         } else {
             return (
                 <div className="code-des mar22-r">
-                    <p id="cptCode" className="code-iz">CPT Code</p>
+                    <p id="cptCode" className="code-iz">Order Code</p>
                     <p id="descr" className="code-iz">Description</p>
                     <p id="feeAm" className="code-iz">Fee Amount</p>
                 </div>
