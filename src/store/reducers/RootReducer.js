@@ -8,10 +8,14 @@ import { createMode, insCreateMode } from '../reducers/Create';
 import { diagLoading, diagErrored, diags } from '../reducers/Diagnosis';
 import { insLoading, insErrored, insurances, chosenIns, insSelected } from '../reducers/Ins';
 import { isTestLoading, testInput, testList, test, isCptLoading, cptCode, cptList, chosenCptFee, imfeesList } from '../reducers/Fee';
+import { searchQuery, searchLoading, searchResults } from '../reducers/SearchInput';
 
 
 
 const RootReducer = combineReducers({
+    searchQuery, 
+    searchLoading, 
+    searchResults,
     imfeesList,
     chosenCptFee,
     isCptLoading,

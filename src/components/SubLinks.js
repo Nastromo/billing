@@ -19,17 +19,17 @@ export class SubLinks extends Component {
             <div className="fle-ma-io">
                 <div className="fle-yt">
                     <Link
-                        className={url === `/account/fee` ? "box-li box-li-active" : "box-li"}
+                        className={url === `/account/settings/fee` ? "box-li box-li-active" : "box-li"}
                         onClick={this.setActive}
-                        to="/account/fee">Fee Maintenance</Link>
+                        to="/account/settings/fee">Fee Maintenance</Link>
                     <Link
-                        className={url === `/account/insurances` ? "box-li box-li-active" : "box-li"}
+                        className={url === `/account/settings/insurances` ? "box-li box-li-active" : "box-li"}
                         onClick={this.setActive}
-                        to="/account/insurances">Insurances</Link>
+                        to="/account/settings/insurances">Insurances</Link>
                     <Link
-                        className={url === `/account/cpts` ? "box-li box-li-active" : "box-li"}
+                        className={url === `/account/settings/cpts` ? "box-li box-li-active" : "box-li"}
                         onClick={this.setActive}
-                        to="/account/cpts">CPTs</Link>
+                        to="/account/settings/cpts">CPTs</Link>
                 </div>
             </div>
         )

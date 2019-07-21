@@ -14,8 +14,8 @@ export class Navigation extends Component {
 
     componentDidMount() {
         switch (this.props.location.pathname) {
-            case `/account/fee`:
-                this.setActive(this.pending);
+            case `/account/review`:
+                this.setActive(this.review);
                 break;
             case `/account/insurances`:
                 this.setActive(this.processing);
@@ -30,7 +30,7 @@ export class Navigation extends Component {
     handleClick = (e) => {
         switch (e.currentTarget.id) {
             case `option1`:
-                this.setActive(this.pending);
+                this.setActive(this.review);
                 break;
             case `option2`:
                 this.setActive(this.processing);
@@ -52,22 +52,13 @@ export class Navigation extends Component {
                 <div className="main-nav">
                     <div className="main-categories">
                         <p className="logo-text">Billing</p>
-                        {/* <Link
+                        <Link
                             id="option1"
                             onClick={this.handleClick}
-                            innerRef={el => this.pending = el}
+                            innerRef={el => this.review = el}
                             className="menu-active"
-                            to="/account/fee">Fee Maintenance</Link>
-                        <Link
-                            id="option2"
-                            onClick={this.handleClick}
-                            innerRef={el => this.processing = el}
-                            to="/account/insurances">Insurances</Link>
-                        <Link
-                            id="option3"
-                            onClick={this.handleClick}
-                            innerRef={el => this.cpt = el}
-                            to="/account/cpts">CPTs</Link> */}
+                            to="/account/review">Bill Review</Link>
+                        
                     </div>
 
                     <div className="work-info">
@@ -75,7 +66,7 @@ export class Navigation extends Component {
                             id="option1"
                             onClick={this.handleClick}
                             innerRef={el => this.pending = el}
-                            to="/account/fee">Settings</Link>
+                            to="/account/settings/fee">Settings</Link>
                         <Link to="/">Log out</Link>
                     </div>
                 </div>
