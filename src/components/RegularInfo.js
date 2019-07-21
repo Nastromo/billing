@@ -12,7 +12,7 @@ export class RegularInfo extends Component {
 
     render() {
         return (
-            <div className="flex-dif">
+            <div className="flex-dif marg-top-bo">
                 <InfoBoxPatient />
                 <InfoBoxAddress />
                 <InfoBoxBilling />

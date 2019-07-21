@@ -9,10 +9,13 @@ import { diagLoading, diagErrored, diags } from '../reducers/Diagnosis';
 import { insLoading, insErrored, insurances, chosenIns, insSelected } from '../reducers/Ins';
 import { isTestLoading, testInput, testList, test, isCptLoading, cptCode, cptList, chosenCptFee, imfeesList } from '../reducers/Fee';
 import { searchQuery, searchLoading, searchResults } from '../reducers/SearchInput';
+import { newDDStatus, newDDOption } from '../reducers/NewDropDown';
 
 
 
 const RootReducer = combineReducers({
+    newDDStatus,
+    newDDOption,
     searchQuery, 
     searchLoading, 
     searchResults,
