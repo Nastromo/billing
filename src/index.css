@@ -944,6 +944,18 @@ p.logo-text:hover {
     width: 100%;
 }
 
+.item-row {
+    padding: 5px 15px;
+    border-radius: 4px;
+    background: beige;
+    margin: 4px 7px 4px 0;
+    width: 100%;
+}
+
+.align-center {
+    align-items: center;
+}
+
 .delete {
     border: none;
     border-radius: 4px;
@@ -2611,4 +2623,38 @@ p.logo-text:hover {
 
 #mar50h {
     margin: 0 10px 0 0;
+}
+
+.bas50 {
+    flex-basis: 50%;
+    margin: 0 20px 0 0;
+}
+
+.title-table {
+    display: flex;
+    background: #f1f1f1;
+    font-size: 0.84rem;
+    font-weight: 700;
+    margin: 20px 0 10px 0;
+    padding: 4px 15px;
+}
+
+#rrr {
+    width: 70px;
+}
+
+#bbb {
+    width: 220px;
+}
+
+#fff {
+    width: 100px;
+}
+
+#eee {
+    width: 130px;
+}
+
+#ttt {
+    width: 100px;
 }

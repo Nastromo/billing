@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import SearchInput from './SearchInput';
 import RegularInfo from './RegularInfo';
+import BillTo from './BillTo';
 
 
 
@@ -71,6 +72,7 @@ export class RevSettings extends Component {
                 </div>
 
                 <RegularInfo />
+                <BillTo />
             </div>
         )
     }
