@@ -2613,10 +2613,6 @@ p.logo-text:hover {
     padding: 0 15px 0;
 }
 
-.flex {
-    display: flex;
-}
-
 .basde50 {
     flex-basis: 50%;
 }
@@ -2640,7 +2636,7 @@ p.logo-text:hover {
 }
 
 #rrr {
-    width: 70px;
+    width: 100px;
 }
 
 #bbb {
@@ -2648,13 +2644,115 @@ p.logo-text:hover {
 }
 
 #fff {
-    width: 100px;
+    width: 110px;
 }
 
 #eee {
-    width: 130px;
+    width: 210px;
 }
 
 #ttt {
     width: 100px;
+}
+
+.flex {
+    display: flex;
+}
+
+.sp-btw {
+    justify-content: flex-start;
+}
+
+.dhjko {
+    width: 161px;
+    margin: 0 15px 0 0;
+}
+
+.hei30o {
+    height: 30px;
+    border: 1px solid #dadada;
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.mar-bot-10 {
+    margin: 0 0 10px 0;
+}
+
+.green-ch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #1ab394;
+    color: #fff;
+    font-size: 1.1rem;
+    width: 30px;
+    height: 30px;
+    margin: 0 15px 0 0;
+}
+
+.display-none {
+    display: none;
+}
+
+.in-100 {
+    width: 100px;
+    margin: 0 15px 0 0;
+}
+
+.in-200 {
+    width: 195px;
+    margin: 0 15px 0 0;
+}
+
+.rowuu {
+    margin: 0 15px 0 15px;
+    width: 200px;
+}
+
+.mar-gk-d {
+    margin: 3px 0;
+}
+
+.dop-mar {
+    margin: 0 65px 0 0;
+}
+
+#q {
+    width: 100px;
+}
+
+#a {
+    width: 240px;
+}
+
+#s {
+    width: 100px;
+}
+
+#d {
+    width: 100px;
+}
+
+#f {
+    width: 100px;
+}
+
+#g {
+    width: 100px;
+}
+
+#h {
+    width: 100px;
+}
+
+.fi700 {
+    width: 850px;
+    margin: 0 20px 0 0;
+}
+
+.mar20p {
+    margin: 0 20px 0 0;
 }

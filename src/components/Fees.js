@@ -4,21 +4,21 @@ import { connect } from 'react-redux';
 
 
 
-export class InsTable extends Component {
-
+export class Fees extends Component {
 
     render() {
         return (
-            <div>
+            <div className="fi700">
                 <div className="title-table">
-                    {/* <p id="rrr">Ins Code</p> */}
-                    <p id="bbb">Ins Name</p>
-                    <p id="fff">Rel 2 Ins</p>
-                    <p id="eee">Policy</p>
-                    <p id="ttt">Primary</p>
-                    <p>Bill</p>
+                    <p id="q">Code</p>
+                    <p id="a">Description</p>
+                    <p id="s">CPT</p>
+                    <p id="d">Units</p>
+                    <p id="f">Modifier</p>
+                    <p id="g">Fee</p>
+                    <p id="h">Status</p>
                 </div>
-                {
+                {/* {
                     this.props.ins.map((item, i) => {
                         return (
                             <div key={i} className="flex mar-gk-d">
@@ -31,18 +31,18 @@ export class InsTable extends Component {
                             </div>
                         )
                     })
-                }
+                } */}
             </div>
         )
     }
 }
 
 const mapStateToProps = (state) => ({
-    ins: [1, 2],
+
 })
 
 const mapDispatchToProps = {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(InsTable)
+export default connect(mapStateToProps, mapDispatchToProps)(Fees)

@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import ReactTable from "react-table";
 import '../table.css';
 import { showRev } from '../store/actions/Reviews';
-
+import NewDropDown from './NewDropDown';
+import { getInstumTypes } from '../store/actions/Instrums';
 
 
 export class RevList extends Component {
@@ -51,16 +52,41 @@ export class RevList extends Component {
         this.props.setCreateMode();
     }
 
+    componentDidMount() {
+        this.props.getInstumTypes();
+    }
+
     renderList = (list, text) => {
         return (
             <div className="content-table wide-t">
-                {/* <div onClick={this.handleCreate} className="create">Create</div> */}
+                <div className="flex sp-btw mar-bot-10">
+                    <div className="dhjko">
+                        <p className="sma-te-we">Date range:</p>
+                        <input className="hei30o" placeholder="mm/dd/yyyy" ref={el => this.start = el } />
+                        <input className="hei30o" placeholder="mm/dd/yyyy" ref={el => this.end = el } />
+                    </div>
+                    <div className="dhjko">
+                        <p className="sma-te-we">Ins #:</p>
+                        <input className="hei30o" ref={el => this.ins = el } />
+                    </div>
+                    <div className="dhjko">
+                        <p className="sma-te-we">Instrument type:</p>
+                        <NewDropDown
+                            id="instrumentsBill"
+                            actionType="SET_INSTURM_DROP_OPTION"
+                            height="30px"
+                            status={this.props.isOpenInstrum}
+                            menu={this.props.instrums ? this.props.instrums : []}
+                            option={this.props.optionInstrum} />
+                    </div>
+                    
+                </div>
                 <ReactTable
                     data={list}
                     getTdProps={this.handleRowClick}
                     columns={this.initColumns()}
                     resizable={false}
-                    filterable={true}
+                    filterable={false}
                     defaultPageSize={15}
                     noDataText={text}
                 />
@@ -78,10 +104,15 @@ export class RevList extends Component {
 const mapStateToProps = (state) => ({
     selected: state.revSelected,
     list: state.review,
+
+    isOpenInstrum: state.newDDStatus.instrumentsBill,
+    optionInstrum: state.newDDOption.instrumentsBill,
+    instrums: state.instrums,
 })
 
 const mapDispatchToProps = dispatch => ({
     showRev: (index) => dispatch(showRev(index)),
+    getInstumTypes: (text) => dispatch(getInstumTypes(text)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(RevList)

@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 import SearchInput from './SearchInput';
 import RegularInfo from './RegularInfo';
 import BillTo from './BillTo';
+import Fees from './Fees';
+import Diags from './Diags';
 
 
 
 export class RevSettings extends Component {
-
 
     render() {
         return (
@@ -73,6 +74,12 @@ export class RevSettings extends Component {
 
                 <RegularInfo />
                 <BillTo />
+
+                <div className="flex">
+                    <Fees />
+                    <Diags />
+                </div>
+
             </div>
         )
     }
