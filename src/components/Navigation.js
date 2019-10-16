@@ -58,15 +58,22 @@ export class Navigation extends Component {
                             innerRef={el => this.review = el}
                             className="menu-active"
                             to="/account/review">Bill Review</Link>
-                        
+
                     </div>
 
                     <div className="work-info">
                         <Link
-                            id="option1"
+                            id="sett"
                             onClick={this.handleClick}
                             innerRef={el => this.pending = el}
                             to="/account/settings/fee">Settings</Link>
+                        <div className="drop-sub-menu">
+                            <Link to="/account/settings/fee">Fee Maintenance</Link>
+                            <Link to="/account/settings/insurances">Insurances</Link>
+                            <Link to="/account/settings/cpts">CPTs</Link>
+                            <Link to="/account/settings/categories">Billing Categories</Link>
+                            
+                        </div>
                         <Link to="/">Log out</Link>
                     </div>
                 </div>
