@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import LineSpinner from './LineSpinner';
 import Navigation from './Navigation';
-import Settings from './Settings';
-import Review from './Review';
+// import Settings from './Settings';
+// import Review from './Review';
+import Efunc from './Efunc';
 
 
 
@@ -19,8 +20,9 @@ export class PrivateRoute extends Component {
             <div>
                 <Navigation />
                 <Switch>
-                    <Route path="/account/settings" component={Settings} />
-                    <Route path="/account/review" component={Review} />
+                    {/* <Route path="/account/settings" component={Settings} />
+                    <Route path="/account/review" component={Review} /> */}
+                    <Route path="/account/efunc" component={Efunc} />
                 </Switch>
             </div>
         )

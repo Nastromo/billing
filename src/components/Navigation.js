@@ -18,7 +18,7 @@ export class Navigation extends Component {
                 this.setActive(this.review);
                 break;
             case `/account/insurances`:
-                this.setActive(this.processing);
+                this.setActive(this.option2);
                 break;
             case `/account/cpts`:
                 this.setActive(this.cpt);
@@ -33,7 +33,7 @@ export class Navigation extends Component {
                 this.setActive(this.review);
                 break;
             case `option2`:
-                this.setActive(this.processing);
+                this.setActive(this.option2);
                 break;
             case `option3`:
                 this.setActive(this.cpt);
@@ -52,27 +52,33 @@ export class Navigation extends Component {
                 <div className="main-nav">
                     <div className="main-categories">
                         <p className="logo-text">Billing</p>
-                        <Link
+                        {/* <Link
                             id="option1"
                             onClick={this.handleClick}
                             innerRef={el => this.review = el}
                             className="menu-active"
-                            to="/account/review">Bill Review</Link>
+                            to="/account/review">Bill Review</Link> */}
+                        <Link
+                            id="option2"
+                            onClick={this.handleClick}
+                            innerRef={el => this.option2 = el}
+                            className="menu-active"
+                            to="/account/efunc">E-func</Link>
 
                     </div>
 
                     <div className="work-info">
-                        <Link
+                        {/* <Link
                             id="sett"
                             onClick={this.handleClick}
                             innerRef={el => this.pending = el}
-                            to="/account/settings/fee">Settings</Link>
+                            to="/account/settings/fee">Settings</Link> */}
                         <div className="drop-sub-menu">
                             <Link to="/account/settings/fee">Fee Maintenance</Link>
                             <Link to="/account/settings/insurances">Insurances</Link>
                             <Link to="/account/settings/cpts">CPTs</Link>
                             <Link to="/account/settings/categories">Billing Categories</Link>
-                            
+
                         </div>
                         <Link to="/">Log out</Link>
                     </div>

@@ -5,7 +5,7 @@ import Insurances from './Insurances';
 import FeeMaintenance from './FeeMaintenance';
 // import SubLinks from './SubLinks';
 import Cpts from './Cpts';
-import Cats from './Cats';
+// import Cats from './Cats';
 
 
 
@@ -16,9 +16,9 @@ export class Settings extends Component {
             <div>
                 
                 <Switch>
-                    <Route exact path="/account/settings/cpts" component={Cpts} />
-                    <Route exact path="/account/settings/insurances" component={Insurances} />
-                    <Route exact path="/account/settings/fee" component={FeeMaintenance} />
+                    {/* <Route exact path="/account/settings/cpts" component={Cpts} /> */}
+                    {/* <Route exact path="/account/settings/insurances" component={Insurances} /> */}
+                    {/* <Route exact path="/account/settings/fee" component={FeeMaintenance} /> */}
                     {/* <Route exact path="/account/settings/categories" component={Cats} /> */}
                     
                 </Switch>

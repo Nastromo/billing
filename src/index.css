@@ -864,6 +864,18 @@ p.logo-text:hover {
     padding: 0 15px 0;
 }
 
+.gap {
+    margin: 0 10px 0 0;
+}
+
+.simple-inputuu {
+    height: 30px;
+    width: 150px;
+    border-radius: 3px;
+    border: 1px solid #dadada;
+    padding: 0 15px 0;
+}
+
 .gross-other {
     height: 100px;
     box-sizing: border-box;
@@ -2798,3 +2810,51 @@ p.logo-text:hover {
     margin-right: 15px;
 }
 
+.bor-da {
+    margin: 10px 0 0 0;
+    border: 1px solid #dadada;
+    width: 100%;
+}
+
+.al-it-start {
+    align-items: flex-start;
+}
+
+.titt-sec {
+    padding: 3px 10px;
+    background: #eeeeee;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.ju-btw {
+    justify-content: space-between;
+}
+
+.mar-riuy {
+    margin: 5px 0 10px 10px;
+}
+
+.poin-tt {
+    font-size: 0.8rem;
+}
+
+.ggbol {
+    font-weight: 700;
+}
+
+.margjj {
+    margin: 5px 10px 0 0;
+}
+
+.mar-to10 {
+    margin: 10px 15px 0 0;
+}
+
+.bas30 {
+    flex-basis: 30%;
+}
+
+.gert {
+    margin: 15px 0 0 0;
+}
