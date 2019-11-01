@@ -21,8 +21,8 @@ export class ClientInfo extends Component {
 
 
                         <div className="mar-riuy">
+                            <p className="poin-tt">Name:</p>
                             <p className="poin-tt">Street:</p>
-                            <p className="poin-tt">City:</p>
                         </div>
                         <div className="mar-riuy">
                             <p className="poin-tt ggbol">Value</p>
@@ -32,7 +32,7 @@ export class ClientInfo extends Component {
 
                         <div className="mar-riuy">
                             <p className="poin-tt">State:</p>
-                            <p className="poin-tt">Zip Id:</p>
+                            <p className="poin-tt">Zip:</p>
                         </div>
                         <div className="mar-riuy margjj">
                             <p className="poin-tt ggbol">Value</p>

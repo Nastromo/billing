@@ -10,8 +10,12 @@ export class PaymentsList extends Component {
     initColumns = () => {
         return [
             {
-                Header: 'Client Login',
-                accessor: 'email',
+                Header: 'Name',
+                accessor: 'firstName',
+            },
+            {
+                Header: 'Test',
+                accessor: 'test',
             },
             {
                 Header: 'Amount, $',
@@ -22,7 +26,7 @@ export class PaymentsList extends Component {
                 accessor: 'qty',
             },
             {
-                Header: 'Payment Date',
+                Header: 'Date',
                 accessor: 'paymentDate',
             },
         ];
