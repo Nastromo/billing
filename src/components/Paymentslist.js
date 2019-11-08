@@ -2,20 +2,24 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactTable from "react-table";
 import '../table.css';
-import { showIns, setCreateMode } from '../store/actions/Ins';
+import { getPayments, showClientData } from '../store/actions/EPayments';
 
 
 
 export class PaymentsList extends Component {
+    componentDidMount() {
+        this.props.getPayments();
+    }
+
     initColumns = () => {
         return [
             {
                 Header: 'Name',
-                accessor: 'firstName',
+                accessor: 'clientName',
             },
             {
                 Header: 'Test',
-                accessor: 'test',
+                accessor: 'testTitle',
             },
             {
                 Header: 'Amount, $',
@@ -27,7 +31,7 @@ export class PaymentsList extends Component {
             },
             {
                 Header: 'Date',
-                accessor: 'paymentDate',
+                accessor: 'date',
             },
         ];
     }
@@ -35,7 +39,7 @@ export class PaymentsList extends Component {
     handleRowClick = (state, rowInfo, column, instance) => {
         if (rowInfo) {
             return {
-                onClick: (e, handleOriginal) => this.props.showIns(rowInfo.index),
+                onClick: (e, handleOriginal) => this.props.showClientData(rowInfo.index),
                 style: {
                     fontWeight: rowInfo.index === this.props.selected ? '700' : '600',
                     color: rowInfo.index === this.props.selected ? '#1ab394' : '#4e4e4e',
@@ -75,15 +79,15 @@ export class PaymentsList extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    selected: state.insSelected,
+    selected: state.paymentSelected,
     isLoading: state.insLoading,
     isErrored: state.insErrored,
-    list: [],
+    list: state.epayments,
 })
 
 const mapDispatchToProps = dispatch => ({
-    showIns: (index) => dispatch(showIns(index)),
-    setCreateMode: () => dispatch(setCreateMode())
+    showClientData: (index) => dispatch(showClientData(index)),
+    getPayments: () => dispatch(getPayments())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PaymentsList)

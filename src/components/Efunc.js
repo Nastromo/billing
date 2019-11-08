@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Paymentslist from './Paymentslist';
 import ClientInfo from './ClientInfo';
-import DatePicker from './DatePicker';
+// import DatePicker from './DatePicker';
 
 
 
@@ -10,7 +10,8 @@ export class Efunc extends Component {
     render() {
         return (
             <div className="main-div">
-                <DatePicker />
+            <h2>Payments:</h2>
+                {/* <DatePicker /> */}
                 <div className="flex al-it-start">
                     <Paymentslist />
                     <ClientInfo />

@@ -15,8 +15,8 @@ export class ClientInfo extends Component {
 
                         </div>
                         <div className="mar-riuy">
-                            <p className="poin-tt ggbol">Value</p>
-                            <p className="poin-tt ggbol">Value</p>
+                            <p className="poin-tt ggbol">{this.props.eclient.email}</p>
+                            <p className="poin-tt ggbol">{this.props.eclient.phone}</p>
                         </div>
 
 
@@ -25,8 +25,8 @@ export class ClientInfo extends Component {
                             <p className="poin-tt">Street:</p>
                         </div>
                         <div className="mar-riuy">
-                            <p className="poin-tt ggbol">Value</p>
-                            <p className="poin-tt ggbol">Value</p>
+                            <p className="poin-tt ggbol">{this.props.eclient.name}</p>
+                            <p className="poin-tt ggbol">{this.props.eclient.street}</p>
                         </div>
 
 
@@ -35,15 +35,15 @@ export class ClientInfo extends Component {
                             <p className="poin-tt">Zip:</p>
                         </div>
                         <div className="mar-riuy margjj">
-                            <p className="poin-tt ggbol">Value</p>
-                            <p className="poin-tt ggbol">Value</p>
+                            <p className="poin-tt ggbol">{this.props.eclient.state}</p>
+                            <p className="poin-tt ggbol">{this.props.eclient.zip}</p>
                         </div>
                     </div>
                 </div>
 
                 <div className="gert">
                     <h3>TOTAL AMOUNT (by client):</h3>
-                    <h2>{`$20 000`}</h2>
+                    <h2>{`$${this.props.eclient.total}`}</h2>
                 </div>
             </div>
         )
@@ -51,7 +51,7 @@ export class ClientInfo extends Component {
 }
 
 const mapStateToProps = (state) => ({
-
+    eclient: state.eclient
 })
 
 const mapDispatchToProps = {

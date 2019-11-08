@@ -10,10 +10,15 @@ import { insLoading, insErrored, insurances, chosenIns, insSelected } from '../r
 import { isTestLoading, testInput, testList, test, isCptLoading, cptCode, cptList, chosenCptFee, imfeesList } from '../reducers/Fee';
 import { searchQuery, searchLoading, searchResults } from '../reducers/SearchInput';
 import { newDDStatus, newDDOption } from '../reducers/NewDropDown';
+import { epayments, eclient, paymentSelected } from '../reducers/EPayments';
+
 
 
 
 const RootReducer = combineReducers({
+    paymentSelected,
+    eclient,
+    epayments,
     newDDStatus,
     newDDOption,
     searchQuery, 
