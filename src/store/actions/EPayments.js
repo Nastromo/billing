@@ -31,13 +31,19 @@ export const setPaySelected = (i) => ({
     i
 });
 
+
+export const setPayment = (obj) => ({
+    type: 'SET_PAYMENT',
+    obj
+});
+
 export const showClientData = (i) => {
     return async (dispatch, getState) => {
         try {
             const payment = getState().epayments[i];
-            dispatch(setPaySelected(i))
+            dispatch(setPaySelected(i));
+            dispatch(setPayment(payment));
             const res = await API.get(`/v1/e-client?id=${payment.clientId}`);
-            console.log(res.data)
             dispatch(setClientData(res.data));
         } catch (err) {
             console.log(err);

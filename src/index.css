@@ -2814,6 +2814,7 @@ p.logo-text:hover {
     margin: 10px 0 0 0;
     border: 1px solid #dadada;
     width: 100%;
+    max-width: 900px;
 }
 
 .al-it-start {
@@ -2857,4 +2858,10 @@ p.logo-text:hover {
 
 .gert {
     margin: 15px 0 0 0;
+}
+
+.margirrrwe {
+    width: 100%;
+    max-width: 600px;
+    justify-content: space-between;
 }

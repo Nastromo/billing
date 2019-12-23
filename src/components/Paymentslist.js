@@ -55,6 +55,16 @@ export class PaymentsList extends Component {
         this.props.setCreateMode();
     }
 
+    filterCaseInsensitive = (filter, row) => {
+        const id = filter.pivotId || filter.id;
+        return (
+            row[id] !== undefined ?
+                String(row[id].toLowerCase()).startsWith(filter.value.toLowerCase())
+            :
+                true
+        );
+    }
+
     renderList = (list, text) => {
         return (
             <div className="bas30 mar-to10">
@@ -64,6 +74,7 @@ export class PaymentsList extends Component {
                     columns={this.initColumns()}
                     resizable={false}
                     filterable={true}
+                    defaultFilterMethod={this.filterCaseInsensitive}
                     defaultPageSize={13}
                     noDataText={text}
                 />

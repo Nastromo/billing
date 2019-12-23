@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+
+
+
 export class ClientInfo extends Component {
     render() {
         return (
@@ -42,8 +45,12 @@ export class ClientInfo extends Component {
                 </div>
 
                 <div className="gert">
-                    <h3>TOTAL AMOUNT (by client):</h3>
-                    <h2>{`$${this.props.eclient.total}`}</h2>
+                    <div className="flex margirrrwe">
+                        <p><strong>Test:</strong> {this.props.payment.testTitle}</p>
+                        <p><strong>QTY:</strong> {this.props.payment.qty}</p>
+                        <p><strong>TOTAL:</strong> ${this.props.payment.amount}</p>
+                    </div>
+
                 </div>
             </div>
         )
@@ -51,6 +58,7 @@ export class ClientInfo extends Component {
 }
 
 const mapStateToProps = (state) => ({
+    payment: state.payment,
     eclient: state.eclient
 })
 

@@ -24,3 +24,12 @@ export const paymentSelected = (state = 0, action) => {
         default: return state;
     }
 }
+
+export const payment = (state = {}, action) => {
+    switch (action.type) {
+        case `SET_PAYMENT`:
+            return action.obj;
+
+        default: return state;
+    }
+}
